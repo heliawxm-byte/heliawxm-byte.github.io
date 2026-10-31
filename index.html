@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>گل‌رُخ | فروشگاه لوازم آرایش</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--plum:#4a1942;--plum2:#7b2d6b;--pink:#e8467c;--peach:#ffb199;--gold:#f5b94a;--blush:#fff3f6;--lav:#efe3ff;--ink:#2d1a2e;--line:#f1d5e0;--white:#fff;--orchid:var(--pink)}
+*{box-sizing:border-box;margin:0}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:linear-gradient(180deg,var(--blush),#fff 40%,var(--lav) 100%);color:var(--ink);line-height:1.8;min-height:100vh}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+header{background:linear-gradient(90deg,var(--plum),var(--plum2));color:var(--white);position:sticky;top:0;z-index:20;box-shadow:0 4px 18px rgba(74,25,66,.25)}
+.bar{max-width:1100px;margin:auto;padding:12px 16px;display:flex;align-items:center;gap:12px}
+.logo{font-weight:800;font-size:1.6rem;white-space:nowrap;background:linear-gradient(90deg,#fff,var(--peach));-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo small{display:block;font-size:.62rem;font-weight:400;line-height:1;color:#f3d7ea;-webkit-text-fill-color:#f3d7ea}
+#q{flex:1;min-width:0;padding:10px 18px;border-radius:999px;border:2px solid transparent;font:inherit;background:var(--white)}
+#q:focus{border-color:var(--gold);outline:0}
+.cartbtn{background:linear-gradient(135deg,var(--pink),#ff7a59);color:var(--white);border:0;border-radius:999px;padding:9px 16px;font-weight:600;white-space:nowrap;box-shadow:0 4px 12px rgba(232,70,124,.45)}
+.cartbtn b{background:var(--white);color:var(--pink);border-radius:999px;padding:0 8px;margin-right:6px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#5b1d52 0%,#b43a7a 55%,#ff8a6b 100%);color:var(--white);padding:56px 16px 64px;text-align:center}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(2px)}
+.hero::before{width:260px;height:260px;background:rgba(255,255,255,.12);top:-90px;right:-60px}
+.hero::after{width:200px;height:200px;background:rgba(245,185,74,.28);bottom:-80px;left:-40px}
+.hero>*{position:relative;z-index:1}
+.hero h1{font-size:clamp(1.9rem,6vw,3.1rem);font-weight:800;line-height:1.45;text-shadow:0 2px 12px rgba(0,0,0,.2)}
+.hero p{max-width:520px;margin:12px auto 22px;opacity:.95}
+.cta{display:inline-block;background:var(--white);color:var(--plum);font-weight:800;border-radius:999px;padding:11px 30px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.feats{max-width:1100px;margin:-28px auto 0;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;position:relative;z-index:2}
+.feats button{border:0;font-family:inherit;cursor:pointer;color:var(--ink);transition:transform .15s}
+.feats button:hover{transform:translateY(-3px)}
+.feats button{background:var(--white);border-radius:16px;padding:12px 14px;text-align:center;font-size:.88rem;font-weight:600;box-shadow:0 6px 18px rgba(74,25,66,.12)}
+.feats span{display:block;font-size:1.5rem;line-height:1.4}
+main{max-width:1100px;margin:auto;padding:32px 16px 60px}
+h2.sec{font-size:1.3rem;font-weight:800;color:var(--plum);margin-bottom:14px}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;margin-bottom:16px}
+.cats button{flex:none;border:0;background:var(--white);border-radius:999px;padding:7px 20px;color:var(--plum);font-weight:600;box-shadow:0 2px 8px rgba(74,25,66,.1)}
+.cats button.on{background:linear-gradient(135deg,var(--pink),#ff7a59);color:var(--white)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px}
+.card{background:var(--white);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 20px rgba(74,25,66,.09);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(232,70,124,.22)}
+.pic{aspect-ratio:1/1;display:grid;place-items:center;font-size:3.4rem;overflow:hidden}
+.pic svg,.row .dot svg{width:100%;height:100%;display:block}
+.pic img{width:100%;height:100%;object-fit:cover;display:block}
+.info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:2px;flex:1}
+.brand{font-size:.76rem;color:var(--plum2);font-weight:600;background:var(--lav);align-self:flex-start;border-radius:999px;padding:0 10px}
+.name{font-weight:600;line-height:1.6;margin-top:4px}
+.price{margin-top:auto;padding-top:8px;font-weight:800;color:var(--pink);font-size:1.05rem}
+.add{margin-top:8px;border:0;background:linear-gradient(135deg,var(--plum),var(--plum2));color:var(--white);border-radius:14px;padding:10px;font-weight:600}
+.add:hover{background:linear-gradient(135deg,var(--pink),#ff7a59)}
+.empty{text-align:center;padding:60px 0;color:#7a5f73}
+#ov{position:fixed;inset:0;background:rgba(45,26,46,.5);display:none;z-index:30}
+#ov.show{display:block}
+#drawer{position:fixed;top:0;bottom:0;left:0;width:min(400px,100%);background:var(--white);z-index:40;transform:translateX(-100%);transition:transform .25s;display:flex;flex-direction:column}
+#drawer.show{transform:none}
+.dh{padding:16px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,var(--plum),var(--plum2));color:var(--white);font-weight:800}
+.dh button{border:0;background:none;font-size:1.6rem;color:var(--white)}
+#items{flex:1;overflow:auto;padding:8px 16px}
+.row{display:flex;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .dot{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.4rem;flex:none}
+.row .t{flex:1;font-size:.9rem;line-height:1.5}
+.row .t span{display:block;color:#7a5f73;font-size:.8rem}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:28px;height:28px;border-radius:50%;border:0;background:var(--lav);color:var(--plum);font-weight:800}
+.df{padding:16px;background:var(--blush);display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-weight:800;color:var(--plum)}
+.df input{padding:10px 12px;border:1px solid var(--line);border-radius:12px;font:inherit}
+.order{border:0;background:linear-gradient(135deg,var(--pink),#ff7a59);color:var(--white);border-radius:14px;padding:12px;font-weight:800}
+.note{font-size:.75rem;color:#7a5f73}
+footer{background:linear-gradient(90deg,var(--plum),var(--plum2));color:#f3d7ea;text-align:center;padding:26px 16px;font-size:.85rem}
+#info{position:fixed;inset:0;background:rgba(45,26,46,.55);z-index:50;display:grid;place-items:center;padding:16px}
+#info[hidden]{display:none}
+#info .box{background:var(--white);border-radius:22px;max-width:420px;width:100%;padding:26px 22px;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+#info h3{color:var(--plum);margin-bottom:8px}
+#info p{white-space:pre-line;font-size:.95rem}
+#info .x{position:absolute;top:8px;left:12px;border:0;background:none;font-size:1.6rem;color:var(--plum)}
+.top{background:var(--gold);color:var(--plum);text-align:center;font-size:.82rem;font-weight:600;padding:5px 10px}
+.top a,footer a{color:inherit;text-decoration:none;font-weight:800}
+.about{max-width:1100px;margin:0 auto;padding:10px 16px 50px}
+.lead{max-width:680px;margin-bottom:18px}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.cc{background:var(--white);border-radius:18px;padding:16px;text-align:center;color:var(--ink);text-decoration:none;box-shadow:0 6px 18px rgba(74,25,66,.1);display:block}
+.cc span{display:block;font-size:1.6rem;line-height:1.5}
+.cc b{display:block;color:var(--plum)}
+a.cc:hover{box-shadow:0 10px 24px rgba(232,70,124,.25)}
+.flogo{font-size:1.4rem;font-weight:800;color:#fff}
+.copy{opacity:.8;margin-top:6px}
+html{scroll-behavior:smooth}
+#shop{scroll-margin-top:72px}
+.reviews{max-width:1100px;margin:0 auto;padding:10px 16px 20px}
+.rlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-bottom:20px}
+.rc{background:var(--white);border-radius:18px;padding:14px 16px;box-shadow:0 6px 18px rgba(74,25,66,.1)}
+.rc .who{font-weight:800;color:var(--plum)}
+.rc .st{color:var(--gold);letter-spacing:2px}
+.rc p{font-size:.92rem;margin-top:4px;white-space:pre-line}
+.rform{background:var(--white);border-radius:20px;padding:18px;box-shadow:0 6px 18px rgba(74,25,66,.1);display:grid;gap:10px;max-width:560px}
+.rform input,.rform textarea{padding:10px 12px;border:1px solid var(--line);border-radius:12px;font:inherit;width:100%}
+.rform textarea{min-height:90px;resize:vertical}
+.stars{display:flex;gap:4px;direction:ltr;justify-content:flex-end}
+.stars button{border:0;background:none;font-size:1.9rem;line-height:1;color:#e5d3dc;padding:0 2px}
+.stars button.on{color:var(--gold)}
+.rsend{border:0;background:linear-gradient(135deg,var(--pink),#ff7a59);color:var(--white);border-radius:14px;padding:12px;font-weight:800}
+.rmsg{font-size:.85rem;color:var(--plum2);min-height:1.2em}
+.tools{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.tools label{font-size:.85rem;font-weight:600;color:var(--plum);display:flex;align-items:center;gap:6px}
+.tools select{padding:8px 12px;border-radius:12px;border:1px solid var(--line);background:var(--white);font:inherit;color:var(--ink)}
+.catsec{margin-bottom:34px;scroll-margin-top:130px}
+.cath{font-size:1.2rem;font-weight:800;color:var(--plum);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.cath::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--pink),transparent)}
+.card.hit{box-shadow:0 0 0 3px var(--pink),0 14px 30px rgba(232,70,124,.35);animation:pop 1s ease 2}
+@keyframes pop{50%{transform:scale(1.04)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card.hit{animation:none}}
+@media(prefers-reduced-motion:reduce){#drawer,.card{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="top">🛵 ارسال با اسنپ‌بایک، حداکثر ۱۰ روز کاری &nbsp;|&nbsp; 🎁 هدیه: عطر &nbsp;|&nbsp; 📞 <a href="tel:09903024075">۰۹۹۰۳۰۲۴۰۷۵</a></div>
+<header>
+  <div class="bar">
+    <div class="logo">گل‌رُخ<small>لوازم آرایش و مراقبت پوست</small></div>
+    <input id="q" type="search" placeholder="جستجوی محصول یا برند…" aria-label="جستجو">
+    <button class="cartbtn" id="openCart">سبد خرید<b id="count">۰</b></button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>رنگ مورد علاقه‌ات را پیدا کن</h1>
+  <p>رژلب، کرم پودر، سایه و مراقبت پوست؛ اصل، با ارسال اسنپ‌بایک و یک عطر هدیه همراه سفارشت.</p>
+  <a class="cta" href="#shop">مشاهده محصولات</a>
+</section>
+<div class="feats">
+  <button data-k="ship"><span>🛵</span>ارسال با اسنپ‌بایک</button>
+  <button data-k="real"><span>✅</span>تضمین اصالت کالا</button>
+  <button data-k="gift"><span>🎁</span>بسته‌بندی هدیه + عطر</button>
+  <button data-k="ret"><span>🔄</span>مرجوعی ۷ روزه</button>
+</div>
+<div id="info" role="dialog" aria-modal="true" hidden>
+  <div class="box">
+    <button class="x" id="infoX" aria-label="بستن">×</button>
+    <h3 id="infoT"></h3>
+    <p id="infoP"></p>
+  </div>
+</div>
+<main id="shop">
+  <h2 class="sec">محصولات</h2>
+  <div class="cats" id="cats"></div>
+  <div class="tools">
+    <label>مرتب‌سازی
+      <select id="sortSel"><option value="def">پیش‌فرض (بر اساس دسته)</option><option value="asc">ارزان‌ترین</option><option value="desc">گران‌ترین</option></select>
+    </label>
+    <label>محدوده قیمت
+      <select id="rangeSel"><option value="all">همه قیمت‌ها</option><option value="low">زیر ۲۰۰ هزار تومان</option><option value="mid">۲۰۰ تا ۴۰۰ هزار تومان</option><option value="high">بالای ۴۰۰ هزار تومان</option></select>
+    </label>
+  </div>
+  <div id="grid"></div>
+  <div class="empty" id="empty" hidden>محصولی با این نام پیدا نشد. عبارت دیگری را امتحان کن.</div>
+</main>
+
+<section class="reviews" id="reviews">
+  <h2 class="sec">نظرات مشتریان</h2>
+  <div class="rlist" id="rlist"></div>
+  <div class="rform">
+    <b>نظرتان را بنویسید</b>
+    <input id="rname" placeholder="نام شما" maxlength="40">
+    <div class="stars" id="stars" aria-label="امتیاز">
+      <button data-s="5" aria-label="۵ ستاره">★</button><button data-s="4" aria-label="۴ ستاره">★</button><button data-s="3" aria-label="۳ ستاره">★</button><button data-s="2" aria-label="۲ ستاره">★</button><button data-s="1" aria-label="۱ ستاره">★</button>
+    </div>
+    <input id="rprod" placeholder="نام محصول (اختیاری)" maxlength="60">
+    <textarea id="rtext" placeholder="تجربه‌تان از خرید و محصول…" maxlength="500"></textarea>
+    <button class="rsend" id="rsend">ارسال نظر</button>
+    <div class="rmsg" id="rmsg"></div>
+    <div class="note">نظر شما برای فروشگاه در تلگرام ارسال می‌شود و بعد از بررسی در همین بخش نمایش داده می‌شود.</div>
+  </div>
+</section>
+
+<section class="about" id="contact">
+  <h2 class="sec">درباره‌ی گل‌رُخ</h2>
+  <p class="lead">گل‌رُخ فروشگاه لوازم آرایش و مراقبت پوست است. ما محصولات را با دقت انتخاب می‌کنیم تا رنگ و کیفیت مناسب خودتان را راحت پیدا کنید و سفارشتان با بسته‌بندی تمیز به دستتان برسد.</p>
+  <div class="cgrid">
+    <div class="cc"><span>📍</span><b>آدرس</b>تهران، اکباتان، فاز ۱</div>
+    <a class="cc" href="tel:09903024075"><span>📞</span><b>تلفن تماس</b>۰۹۹۰۳۰۲۴۰۷۵</a>
+    <div class="cc"><span>🛵</span><b>ارسال با اسنپ‌بایک</b>حداکثر ۱۰ روز کاری</div>
+    <div class="cc"><span>💬</span><b>ثبت سفارش</b>از طریق سبد خرید و تلگرام</div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">گل‌رُخ</div>
+  <div>تهران، اکباتان، فاز ۱ &nbsp;•&nbsp; <a href="tel:09903024075">۰۹۹۰۳۰۲۴۰۷۵</a></div>
+  <div class="copy">© گل‌رُخ — تمام حقوق محفوظ است</div>
+</footer>
+
+<div id="ov"></div>
+<aside id="drawer" aria-label="سبد خرید">
+  <div class="dh"><span>سبد خرید شما</span><button id="closeCart" aria-label="بستن">×</button></div>
+  <div id="items"></div>
+  <div class="df">
+    <div class="tot"><span>جمع کل</span><span id="total">۰ تومان</span></div>
+    <input id="cname" placeholder="نام و نام خانوادگی">
+    <input id="caddr" placeholder="آدرس و شماره تماس">
+    <button class="order" id="order">ثبت سفارش در تلگرام</button>
+    <div class="note">با زدن دکمه، لیست سفارش در تلگرام برای فروشگاه ارسال می‌شود. ارسال با اسنپ‌بایک، حداکثر ۱۰ روز کاری. هدیه: عطر.</div>
+  </div>
+</aside>
+
+<script>
+// ===== تنظیمات فروشگاه: این دو خط را تغییر بده =====
+const TELEGRAM_USER = "your_telegram_id";   // آیدی تلگرام بدون @
+const CURRENCY = "تومان";
+
+// ===== محصولات: برای اضافه کردن محصول، یک خط جدید بساز =====
+const products = [
+  {id:1, name:"رژلب مات مخملی رزی", brand:"لیدی‌گلم", cat:"لب", price:285000, icon:"💄", color:"#f3c4d3"},
+  {id:2, name:"رژلب مایع ماندگار قرمز", brand:"رُیال", cat:"لب", price:320000, icon:"💋", color:"#f2b6b6"},
+  {id:3, name:"بالم لب مرطوب‌کننده", brand:"سیلک", cat:"لب", price:95000, icon:"🍒", color:"#fadadd"},
+  {id:4, name:"کرم پودر مات ۲۴ ساعته", brand:"پیور‌اسکین", cat:"صورت", price:540000, icon:"🧴", color:"#f8e0cc"},
+  {id:5, name:"کانسیلر پوشش کامل", brand:"لیدی‌گلم", cat:"صورت", price:230000, icon:"✨", color:"#fbe7d3"},
+  {id:6, name:"رژگونه هلویی", brand:"رُیال", cat:"صورت", price:210000, icon:"🌸", color:"#f9cfd2"},
+  {id:7, name:"پالت سایه ۱۲ رنگ", brand:"نایت‌استار", cat:"چشم", price:690000, icon:"🎨", color:"#e4d0ee"},
+  {id:8, name:"ریمل حجم‌دهنده ضدآب", brand:"نایت‌استار", cat:"چشم", price:260000, icon:"👁️", color:"#d9d4ea"},
+  {id:9, name:"خط چشم ماژیکی مشکی", brand:"سیلک", cat:"چشم", price:140000, icon:"🖊️", color:"#dcd3e3"},
+  {id:10, name:"سرم ویتامین C روشن‌کننده", brand:"پیور‌اسکین", cat:"پوست", price:480000, icon:"🍊", color:"#fde3c0"},
+  {id:11, name:"کرم مرطوب‌کننده آبرسان", brand:"پیور‌اسکین", cat:"پوست", price:390000, icon:"💧", color:"#d5ebf3"},
+  {id:12, name:"ضدآفتاب SPF50 بی‌رنگ", brand:"سان‌گارد", cat:"پوست", price:350000, icon:"☀️", color:"#fff0b8"},
+  {id:13, name:"پودر فیکس شفاف", brand:"لیدی‌گلم", cat:"صورت", price:310000, icon:"🪞", color:"#f5e6dc"},
+  {id:14, name:"مداد ابرو قهوه‌ای", brand:"سیلک", cat:"چشم", price:120000, icon:"✏️", color:"#e8d9cf"},
+  {id:15, name:"ژل شستشوی صورت ملایم", brand:"پیور‌اسکین", cat:"پوست", price:180000, icon:"🫧", color:"#d8eef0"}
+];
+
+// ===== عکس‌های طراحی‌شده‌ی محصولات (برچسب گل‌رُخ روی هرکدوم) =====
+const T="#4a1942",G="url(#gd)",FT='font-family="Georgia,Times New Roman,serif" font-style="italic"';
+const R=(x,y,w,h,r,f)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${f}"/><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="url(#sh)"/>`;
+const lab=(x,y,w,h,fs)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" fill="#fff" opacity=".94"/><text x="${x+w/2}" y="${y+h/2+fs*.3}" font-size="${fs*.82}" font-weight="700" ${FT} text-anchor="middle" fill="${T}">Gol Rokh</text>`;
+const vlab=(x,y,w,h,fs)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" fill="#fff" opacity=".94"/><text transform="translate(${x+w/2+fs*.3} ${y+h/2}) rotate(90)" font-size="${fs*.82}" font-weight="700" ${FT} text-anchor="middle" fill="${T}">Gol Rokh</text>`;
+const PANS=["#f4c2c2","#e8a0b4","#c2478a","#7b2d6b","#f5b94a","#ff8a6b","#e4d0ee","#b79ad6","#8fd3d9","#7fc8e8","#d9b38c","#8a5a3c"];
+const SHAPES={
+  lipstick:c=>R(70,108,60,64,6,T)+R(70,98,60,12,2,G)+R(80,48,40,54,9,c)+lab(76,126,48,24,12),
+  liquid:c=>R(88,28,24,46,6,T)+R(84,72,32,6,2,G)+R(80,76,40,96,12,c)+vlab(86,96,28,60,11),
+  balm:c=>R(52,102,96,52,14,c)+R(48,76,104,30,10,T)+R(48,98,104,5,0,G)+lab(72,116,56,24,12),
+  bottle:c=>R(70,84,60,88,14,c)+R(90,58,20,28,3,T)+R(84,42,32,16,5,G)+lab(76,112,48,34,12),
+  tube:c=>R(72,46,56,106,8,c)+R(74,38,52,10,2,"#e9dde6")+R(80,150,40,26,5,T)+lab(78,86,44,34,12),
+  compact:c=>R(38,56,124,110,22,T)+`<circle cx="100" cy="100" r="38" fill="${c}"/><circle cx="88" cy="88" r="11" fill="#fff" opacity=".3"/>`+lab(70,140,60,20,11),
+  palette:()=>R(28,58,144,104,12,T)+PANS.map((f,i)=>`<circle cx="${50+(i%6)*20}" cy="${i<6?82:106}" r="8" fill="${f}"/>`).join("")+lab(44,128,112,24,13),
+  mascara:c=>R(86,26,28,40,6,T)+R(82,64,36,8,2,G)+R(82,70,36,104,10,c)+vlab(86,88,28,68,12),
+  pen:c=>`<g transform="rotate(32 100 100)">`+R(88,22,24,36,5,T)+R(88,56,24,6,1,G)+R(88,60,24,98,3,c)+`<polygon points="88,158 112,158 100,184" fill="#f3d9c0"/><polygon points="95,172 105,172 100,184" fill="#2b2230"/>`+vlab(90,76,20,64,11)+`</g>`,
+  dropper:c=>R(66,92,68,80,16,c)+R(88,70,24,24,3,T)+`<ellipse cx="100" cy="50" rx="13" ry="24" fill="${G}"/>`+lab(72,116,56,34,12),
+  jar:c=>R(48,102,104,62,14,c)+R(44,72,112,34,10,T)+R(44,98,112,5,0,G)+lab(68,116,64,30,13),
+  pump:c=>R(72,86,56,86,12,c)+R(94,62,12,26,2,T)+R(78,48,44,16,5,T)+R(118,50,24,8,3,T)+lab(76,114,48,34,12)
+};
+const ART={1:["lipstick","#d9628a"],2:["liquid","#c8102e"],3:["balm","#f28ba0"],4:["bottle","#e6b896"],5:["tube","#efc9a4"],6:["compact","#f0907f"],7:["palette"],8:["mascara","#2b2230"],9:["pen","#1c1620"],10:["dropper","#ff9f1c"],11:["jar","#7fc8e8"],12:["tube","#ffe066"],13:["compact","#f2d9c4"],14:["pen","#8a5a3c"],15:["pump","#8fd3d9"]};
+const art=id=>{const [t,c]=ART[id]||["jar","#e8a0b4"];return `<svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="gd" x1="0" x2="1"><stop offset="0" stop-color="#b8862b"/><stop offset=".45" stop-color="#ffe08a"/><stop offset="1" stop-color="#b8862b"/></linearGradient><linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".22" stop-color="#fff" stop-opacity=".42"/><stop offset=".42" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".2"/></linearGradient></defs><circle cx="100" cy="102" r="86" fill="#fff" opacity=".5"/><ellipse cx="100" cy="176" rx="52" ry="7" fill="${T}" opacity=".15"/>${SHAPES[t](c)}</svg>`};
+
+const fa = n => Number(n).toLocaleString("fa-IR");
+const money = n => fa(n) + " " + CURRENCY;
+let cat = "همه", query = "";
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem("golrokh_cart")) || {}; } catch(e) { cart = {}; }
+
+const $ = id => document.getElementById(id);
+const norm = s => s.replace(/ي/g,"ی").replace(/ك/g,"ک").toLowerCase();
+
+function save(){ try{ localStorage.setItem("golrokh_cart", JSON.stringify(cart)); }catch(e){} }
+
+function renderCats(){
+  const cats = ["همه", ...ORDER];
+  $("cats").innerHTML = cats.map(c => `<button class="${c===cat?"on":""}" data-c="${c}">${c}</button>`).join("");
+}
+
+let sortMode="def",range="all";
+const RANGES={all:[0,1e12],low:[0,200000],mid:[200000,400000],high:[400000,1e12]};
+const inRange=n=>n>=RANGES[range][0]&&n<RANGES[range][1];
+const ORDER=["لب","پوست","چشم","صورت"];
+const TITLES={"لب":"💄 محصولات لب","پوست":"🌿 محصولات پوست","چشم":"👁️ محصولات چشم","صورت":"✨ محصولات صورت"};
+const cardHTML=p=>`
+    <article class="card">
+      <div class="pic" style="background:${p.color}">${art(p.id)}</div>
+      <div class="info">
+        <div class="brand">${p.brand}</div>
+        <div class="name">${p.name}</div>
+        <div class="price">${money(p.price)}</div>
+        <button class="add" data-id="${p.id}">افزودن به سبد</button>
+      </div>
+    </article>`;
+
+function renderProducts(){
+  const q = norm(query.trim());
+  const list = products.filter(p =>
+    (cat==="همه" || p.cat===cat) && (!q || norm(p.name+" "+p.brand+" "+p.cat).includes(q)) && inRange(p.price));
+  if(sortMode!=="def"){
+    list.sort((a,b)=>sortMode==="asc"?a.price-b.price:b.price-a.price);
+    $("grid").innerHTML = list.length ? `<section class="catsec"><h3 class="cath">${sortMode==="asc"?"💸 از ارزان‌ترین":"💎 از گران‌ترین"}</h3><div class="grid">${list.map(cardHTML).join("")}</div></section>` : "";
+    $("empty").hidden = list.length > 0;
+    return;
+  }
+  $("grid").innerHTML = ORDER.map(c => {
+    const items = list.filter(p => p.cat === c);
+    return items.length
+      ? `<section class="catsec" id="cat-${c}"><h3 class="cath">${TITLES[c]}</h3><div class="grid">${items.map(cardHTML).join("")}</div></section>`
+      : "";
+  }).join("");
+  $("empty").hidden = list.length > 0;
+}
+
+function renderCart(){
+  const ids = Object.keys(cart);
+  let total = 0, count = 0;
+  $("items").innerHTML = ids.length ? ids.map(id => {
+    const p = products.find(x => x.id == id); if(!p) return "";
+    const n = cart[id]; total += p.price * n; count += n;
+    return `<div class="row">
+      <div class="dot" style="background:${p.color}">${art(p.id)}</div>
+      <div class="t">${p.name}<span>${money(p.price)}</span></div>
+      <div class="qty">
+        <button data-d="1" data-id="${id}" aria-label="افزایش">+</button>
+        <b>${fa(n)}</b>
+        <button data-d="-1" data-id="${id}" aria-label="کاهش">−</button>
+      </div></div>`;
+  }).join("") : `<div class="empty">سبد خرید شما خالی است.<br>از بین محصولات انتخاب کنید.</div>`;
+  $("total").textContent = money(total);
+  $("count").textContent = fa(count);
+  $("order").disabled = !ids.length;
+  $("order").style.opacity = ids.length ? 1 : .5;
+}
+
+function toggleCart(open){
+  $("drawer").classList.toggle("show", open);
+  $("ov").classList.toggle("show", open);
+}
+
+$("cats").onclick = e => { const c = e.target.dataset.c; if(c){ cat = c; renderCats(); renderProducts(); } };
+let jt;
+function jump(){
+  const el=document.querySelector("#grid .card");
+  if(!el||!query.trim())return;
+  el.scrollIntoView({behavior:"smooth",block:"center"});
+  el.classList.add("hit");
+  setTimeout(()=>el.classList.remove("hit"),2600);
+}
+$("q").oninput = e => {
+  query = e.target.value;
+  if(query.trim() && cat!=="همه"){ cat="همه"; renderCats(); }
+  renderProducts();
+  clearTimeout(jt); jt=setTimeout(jump,600);
+};
+$("q").onkeydown = e => { if(e.key==="Enter"){ clearTimeout(jt); jump(); e.target.blur(); } };
+$("grid").onclick = e => {
+  const id = e.target.dataset.id; if(!id) return;
+  cart[id] = (cart[id] || 0) + 1; save(); renderCart();
+  e.target.textContent = "اضافه شد ✓";
+  setTimeout(() => e.target.textContent = "افزودن به سبد", 900);
+};
+$("items").onclick = e => {
+  const id = e.target.dataset.id, d = Number(e.target.dataset.d); if(!id) return;
+  cart[id] = (cart[id] || 0) + d;
+  if(cart[id] <= 0) delete cart[id];
+  save(); renderCart();
+};
+$("openCart").onclick = () => toggleCart(true);
+$("closeCart").onclick = $("ov").onclick = () => toggleCart(false);
+document.addEventListener("keydown", e => { if(e.key === "Escape") toggleCart(false); });
+
+$("order").onclick = () => {
+  const name = $("cname").value.trim(), addr = $("caddr").value.trim();
+  if(!name || !addr){ alert("لطفاً نام، آدرس و شماره تماس را وارد کنید."); return; }
+  let total = 0;
+  const lines = Object.keys(cart).map(id => {
+    const p = products.find(x => x.id == id); total += p.price * cart[id];
+    return `• ${p.name} × ${fa(cart[id])} = ${money(p.price * cart[id])}`;
+  });
+  const text = `سفارش جدید از گل‌رُخ\n\n${lines.join("\n")}\n\nجمع کل: ${money(total)}\n\nنام: ${name}\nآدرس و تماس: ${addr}`;
+  window.open(`https://t.me/${TELEGRAM_USER}?text=${encodeURIComponent(text)}`, "_blank");
+};
+
+// ===== متن پنجره‌های اطلاعاتی: این‌ها نمونه‌ست، با اطلاعات واقعی فروشگاهت عوضشون کن =====
+const INFO={
+  ship:["ارسال با اسنپ‌بایک","سفارش شما با اسنپ‌بایک ارسال می‌شود.\nمهلت ارسال: حداکثر ۱۰ روز کاری پس از ثبت و تأیید سفارش.\nکرایه پیک هنگام تأیید سفارش اعلام می‌شود.\nبرای پیگیری سفارش با شماره ۰۹۹۰۳۰۲۴۰۷۵ تماس بگیرید."],
+  real:["تضمین اصالت کالا","همه محصولات گل‌رُخ از تأمین‌کنندگان معتبر خریداری می‌شوند.\nدر صورت اصل نبودن کالا، هزینه به‌طور کامل به شما برگردانده می‌شود."],
+  gift:["بسته‌بندی هدیه + عطر","سفارش شما در بسته‌بندی هدیه و با کارت تبریک ارسال می‌شود.\nبه‌عنوان گیفت، یک عطر هم از طرف گل‌رُخ همراه سفارشتان هدیه می‌گیرید 🎁\nاگر سفارش را برای کس دیگری می‌فرستید، هنگام ثبت سفارش بنویسید «هدیه» تا قیمت‌ها روی بسته درج نشود."],
+  ret:["مرجوعی ۷ روزه","تا ۷ روز پس از دریافت، کالای استفاده‌نشده و بسته‌بندی‌شده قابل مرجوع است.\nبرای مرجوعی با شماره ۰۹۹۰۳۰۲۴۰۷۵ تماس بگیرید یا در تلگرام پیام بدهید.\nمحصولات بهداشتی بازشده قابل مرجوع نیستند."]
+};
+function openInfo(k){const [t,x]=INFO[k];$("infoT").textContent=t;$("infoP").textContent=x;$("info").hidden=false}
+document.querySelector(".feats").onclick=e=>{const b=e.target.closest("button");if(b)openInfo(b.dataset.k)};
+$("infoX").onclick=()=>$("info").hidden=true;
+$("info").onclick=e=>{if(e.target.id==="info")$("info").hidden=true};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")$("info").hidden=true});
+
+// ===== نظرات تأییدشده: بعد از بررسی هر نظر، یک خط مثل نمونه زیر به این لیست اضافه کن =====
+// نمونه: {name:"سارا", stars:5, text:"رنگ رژلب عالی بود", product:"رژلب مات مخملی رزی"},
+const REVIEWS=[
+];
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function renderReviews(){
+  $("rlist").innerHTML=REVIEWS.length?REVIEWS.map(r=>`<div class="rc"><div class="who">${esc(r.name)}</div><div class="st" aria-label="${r.stars} از ۵">${"★".repeat(r.stars)}${"☆".repeat(5-r.stars)}</div>${r.product?`<div class="brand">${esc(r.product)}</div>`:""}<p>${esc(r.text)}</p></div>`).join(""):`<div class="empty" style="grid-column:1/-1;padding:20px 0">هنوز نظری ثبت نشده. اولین نظر را شما بنویسید.</div>`;
+}
+let rate=0;
+function paintStars(){document.querySelectorAll("#stars button").forEach(b=>b.classList.toggle("on",Number(b.dataset.s)<=rate))}
+$("stars").onclick=e=>{const b=e.target.closest("button");if(!b)return;rate=Number(b.dataset.s);paintStars()};
+$("rsend").onclick=()=>{
+  const name=$("rname").value.trim(),text=$("rtext").value.trim(),prod=$("rprod").value.trim();
+  if(!name||!text||!rate){$("rmsg").textContent="لطفاً نام، امتیاز و متن نظر را وارد کنید.";return}
+  const msg=`نظر جدید برای گل‌رُخ\n\nنام: ${name}\nامتیاز: ${rate} از ۵${prod?"\nمحصول: "+prod:""}\n\n${text}`;
+  window.open(`https://t.me/${TELEGRAM_USER}?text=${encodeURIComponent(msg)}`,"_blank");
+  $("rmsg").textContent="ممنون! نظر شما ارسال شد و بعد از بررسی نمایش داده می‌شود.";
+  $("rname").value=$("rtext").value=$("rprod").value="";rate=0;paintStars();
+};
+$("sortSel").onchange=e=>{sortMode=e.target.value;renderProducts()};
+$("rangeSel").onchange=e=>{range=e.target.value;renderProducts()};
+renderReviews();
+renderCats(); renderProducts(); renderCart();
+</script>
+</body>
+</html>
